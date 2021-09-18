@@ -4,8 +4,14 @@
     width: 400px;
 }
 
+.game-name {
+    font-size: calc(1.425rem + 1.25vw);
+    font-weight: 300;
+    line-height: 1.2;
+}
+
 .display-7 {
-    font-size: calc(1.425rem);
+    font-size: calc(1.225rem);
     font-weight: 300;
     line-height: 1.2;
 }
