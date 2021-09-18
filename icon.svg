@@ -14,9 +14,9 @@
    id="svg1967"
    inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
    sodipodi:docname="icon.svg"
-   inkscape:export-filename="C:\Users\tkcan\dev\improved-bga-game-info-extension\extension_toolbar_icon32.png"
-   inkscape:export-xdpi="2.1942856"
-   inkscape:export-ydpi="2.1942856">
+   inkscape:export-filename="C:\Users\tkcan\dev\improved-bga-game-info-extension\extension_toolbar_icon128.png"
+   inkscape:export-xdpi="8.7771425"
+   inkscape:export-ydpi="8.7771425">
   <defs
      id="defs1961">
     <rect
@@ -50,9 +50,9 @@
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1001"
-     inkscape:window-x="-9"
-     inkscape:window-y="-9"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata1964">
@@ -62,7 +62,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>

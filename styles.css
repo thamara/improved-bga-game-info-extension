@@ -1,0 +1,21 @@
+.bgg-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.category {
+    display: inline-block;
+    margin: 2px 3px 2px 3px;
+    padding: 2px 10px 2px;
+    background: #d49bd6;
+    color: #000;
+}
+
+.mechanic {
+    display: inline-block;
+    margin: 2px 3px 2px 3px;
+    padding: 2px 10px 2px;
+    background: #a7ade2;
+    color: #000;
+}

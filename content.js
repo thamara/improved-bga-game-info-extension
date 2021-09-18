@@ -1,7 +1,3 @@
-function isGameUrl(url) {
-    return url.startsWith("https://boardgamearena.com/gamepanel?game=");
-}
-
 function makeReadable(str) {
     const paragraphs = str
         .replace(/&amp;/g, '&')
@@ -38,7 +34,7 @@ function parseGamedataApiXml(str) {
     if (gamesHtmlCollection.length) {
         game["id"] = parseInt(gamesHtmlCollection[0].id)
         gamesHtmlCollection[0].childNodes.forEach(
-            function(node) {
+            function (node) {
                 if (node.nodeType === Node.ELEMENT_NODE) {
                     if ((node.tagName === "name") && (node.getAttribute("type") === "primary")) {
                         game["name"] = node.getAttribute("value")
@@ -74,10 +70,10 @@ function parseGamedataApiXml(str) {
                     }
                     if (node.tagName === "statistics") {
                         node.childNodes.forEach(
-                            function(childNode) {
+                            function (childNode) {
                                 if (childNode.tagName === "ratings") {
                                     childNode.childNodes.forEach(
-                                        function(grandchildNode) {
+                                        function (grandchildNode) {
                                             if (grandchildNode.tagName === "numweights") {
                                                 game["numWeights"] = grandchildNode.getAttribute("value")
                                             }
@@ -92,7 +88,7 @@ function parseGamedataApiXml(str) {
                                             }
                                             if (grandchildNode.tagName === "ranks") {
                                                 grandchildNode.childNodes.forEach(
-                                                    function(grandgrandchildNode) {
+                                                    function (grandgrandchildNode) {
                                                         if (grandgrandchildNode.tagName === "rank" && grandgrandchildNode.getAttribute("type") === "subtype") {
                                                             game.attributes["overallRank"] = grandgrandchildNode.getAttribute("value")
                                                         }
@@ -119,8 +115,8 @@ function findBGGGameId(gameName) {
     query = "https://www.boardgamegeek.com/xmlapi2/search?query=" + String(gameName).replaceAll(' ', '+').replaceAll(':', '+') + "&type=boardgame&exact=1";
     return (
         fetch(query)
-        .then(searchResponse => searchResponse.text())
-        .then(searchText => parseSearchApiXml(searchText))
+            .then(searchResponse => searchResponse.text())
+            .then(searchText => parseSearchApiXml(searchText))
     )
 }
 
@@ -128,44 +124,40 @@ function findBGGGameInfo(gameId) {
     query = "https://www.boardgamegeek.com/xmlapi2/thing?stats=1&id=" + gameId;
     return (
         fetch(query)
-        .then(searchResponse => searchResponse.text())
-        .then(searchText => parseGamedataApiXml(searchText))
+            .then(searchResponse => searchResponse.text())
+            .then(searchText => parseGamedataApiXml(searchText))
     )
 }
 
 async function displayGameInfo(gameName) {
     const gameId = await findBGGGameId(gameName);
+    if (gameId === -1) {
+        return;
+    }
     const gameInfo = await findBGGGameInfo(gameId);
-
-    document.getElementById('game-name').innerText = gameInfo.name;
-    document.getElementById('game-img-src').src = gameInfo.thumbnail;
-    document.getElementById('weight-value').innerText = Number(gameInfo.attributes.averageWeight).toFixed(2);
-    document.getElementById('rating-value').innerText = Number(gameInfo.attributes.average).toFixed(2);
-    document.getElementById('see-in-bgg').href = `https://boardgamegeek.com/boardgame/${gameInfo.id}`;
-
     const categories = gameInfo.attributes.categories.map(category => `<li class="category">${category}</li>`).join('');
     const mechanics = gameInfo.attributes.mechanics.map(mechanic => `<li class="mechanic">${mechanic}</li>`).join('');
 
-    document.getElementById('categories-mechanics').innerHTML = categories + mechanics;
+    var div = document.createElement("div");
+    div.className = 'bgg-info';
+    div.innerHTML = `<div class="row"> \
+                    <div style="display:inline-block; padding-left:10px;"><b>Weight:</b> ${Number(gameInfo.attributes.averageWeight).toFixed(2)} / 5</div> \
+                    <div style="display:inline-block; width: 20px;"></div> \
+                    <div style="display:inline-block;"><b>Rating:</b> ${Number(gameInfo.attributes.average).toFixed(2)} / 10</div> \
+                    <div style="display:inline-block; width: 20px;"></div> \
+                    <div style="display:inline-block;"><b>Ranking:</b> ${gameInfo.attributes.overallRank}</div> \
+                    <div style="display:inline-block; width: 20px;"></div> \
+                    <div style="display:inline-block;"><a href="https://boardgamegeek.com/boardgame/${gameInfo.id}" target="_blank">See + on <b>BGG</b></a></div> \
+                    <div style="display:inline-block; width: 20px;"></div> \
+                 </div> \
+                <div class="row" style="margin: 5px;"> \
+                    <ul id="categories-mechanics">${categories} ${mechanics}</ul> \
+                </div> \
+                 `;
 
-    for (const anchor of document.getElementsByTagName('a')) {
-        anchor.onclick = () => {
-            chrome.tabs.create({ active: true, url: anchor.href });
-        };
-    };
+    var gameInfoHeader = document.getElementsByClassName("gameimage")[0].nextElementSibling;
+    gameInfoHeader.appendChild(div);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('loaded');
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        const tab = tabs[0];
-        const tabUrl = tab.url;
-        if (!isGameUrl(tabUrl)) {
-            return;
-        }
-
-        chrome.tabs.executeScript(tab.id, {
-            code: 'document.getElementById("game_name").textContent'
-        }, displayGameInfo);
-    });
-});
+const gameName = document.getElementById("game_name").textContent;
+displayGameInfo(gameName);

@@ -1,11 +1,17 @@
 {
     "name": "Improved BGA game info",
-    "description": "Be able to see more information from a game in BGA using BGG information.",
+    "description": "Be able to see more information from a game in Board Game Arena using Board Game Geed information.",
     "version": "1.0",
     "manifest_version": 2,
-    "browser_action": {
-        "default_popup": "popup.html",
-        "default_icon":  "extension_toolbar_icon16.png"
+    "icons": {
+        "16": "extension_toolbar_icon16.png",
+        "32": "extension_toolbar_icon32.png",
+        "48": "extension_toolbar_icon48.png",
+        "128": "extension_toolbar_icon128.png"
     },
-    "permissions": ["activeTab", "tabs"]
+    "content_scripts": [{
+        "css": ["styles.css"],
+        "js": ["content.js"],
+        "matches": ["https://boardgamearena.com/gamepanel*"]
+    }]
   }
