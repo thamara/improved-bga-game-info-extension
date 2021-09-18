@@ -1,0 +1,11 @@
+{
+    "name": "Improved BGA game info",
+    "description": "Be able to see more information from a game in BGA using BGG information.",
+    "version": "1.0",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_popup": "popup.html",
+        "default_icon":  "extension_toolbar_icon16.png"
+    },
+    "permissions": ["activeTab", "tabs"]
+  }
