@@ -1,3 +1,5 @@
+// The code for parsing BGG's XML API is based on https://github.com/roderickwoodman/boardgameinator
+
 function makeReadable(str) {
     const paragraphs = str
         .replace(/&amp;/g, '&')
