@@ -71,9 +71,30 @@
      id="layer2"
      inkscape:label="Layer 2">
     <path
-       style="fill:#bc5fd3;stroke:none;stroke-width:0.339595px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 123.00576,77.100909 c 8.67429,-93.619555 122.17741,-92.269565 128.07599,1.455405 118.6786,54.968706 190.66674,103.986676 48.02849,125.650286 26.84153,51.96008 101.62489,104.91894 73.25558,155.72878 l -130.50166,1.94055 c -23.43663,-18.2574 -31.22807,-67.24756 -54.82039,-84.89888 -27.95261,17.66782 -33.65731,65.12935 -56.76095,85.86914 L -0.21884547,362.36104 C -33.097538,318.91811 48.294792,257.89502 72.551606,205.66202 41.241313,196.04752 -118.63125,183.87129 123.00576,77.100909 Z"
+       style="fill:#bc5fd3;stroke:none;stroke-width:0.321683px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 126.28677,73.542845 c 8.21675,-88.681395 115.73291,-87.402613 121.32035,1.378637 112.41865,52.069278 180.60962,98.501688 45.49512,119.022608 25.42572,49.21933 96.26448,117.9056 69.39157,166.03537 l -123.61808,1.83818 c -22.20042,-17.29437 -31.84874,-68.61413 -54.19663,-85.33439 -26.4782,16.73589 -29.61413,66.60765 -51.49912,86.25348 L 9.5619024,362.27717 C -21.582535,321.12573 55.516586,244.80059 78.493924,195.32274 48.835158,186.21537 -102.6046,174.6814 126.28677,73.542845 Z"
        id="path864"
        sodipodi:nodetypes="cccccccccc" />
+    <g
+       id="g870"
+       transform="translate(0,-1.5119048)">
+      <circle
+         style="opacity:0.999;fill:#d5d5ff;stroke-width:2.03723;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke markers fill"
+         id="path862"
+         cx="185.20833"
+         cy="169.8627"
+         r="80.508926" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:174.483px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.36211"
+         x="113.81343"
+         y="225.41101"
+         id="text860"><tspan
+           sodipodi:role="line"
+           id="tspan858"
+           x="113.81343"
+           y="225.41101"
+           style="stroke-width:4.36211">+</tspan></text>
+    </g>
   </g>
 </svg>
