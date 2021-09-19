@@ -161,5 +161,13 @@ async function displayGameInfo(gameName) {
     gameInfoHeader.appendChild(div);
 }
 
-const gameName = document.getElementById("game_name").textContent;
-displayGameInfo(gameName);
+// The page might not have loaded yet, so we need to wait for it to do so.
+// This will poll every 100ms until the information is available.
+var initializeInfo = setInterval(function() {
+    const game_name_field = document.getElementById("game_name");
+    if (game_name_field && game_name_field.textContent && game_name_field.textContent.length > 0) {
+        const gameName = game_name_field.textContent;
+        displayGameInfo(gameName);
+        clearInterval(initializeInfo);
+    }
+ }, 500);

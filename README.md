@@ -18,7 +18,6 @@ The extension will include the extended information when in page for games, that
 
 ## Known issues
 This extension is still **work in progress**, so a few issues are know:
-- When first opening a game page, the extension doesn't work. You need to reload the page.
 - Not maching game names: As we do a text based search, some games might not be found. Example: On BGA, the game is called [LLAMA](https://boardgamearena.com/gamepanel?game=lama), while in BGG it's [L.L.A.M.A](https://boardgamegeek.com/boardgame/266083/llm).
 - Localization issues: Some games have their names translated in BGA, but BGG API is English based. Example: Using the Portuguese language, the game [6 nimmt](https://boardgamearena.com/gamepanel?game=sechsnimmt) is translated as "Pega em 6". 
 
