@@ -21,8 +21,8 @@ Feedbacks are more than welcome! Feel free to fill an [issue](https://github.com
 
 ## Known issues
 This extension is considered **work in progress**, so a few issues are know:
-- Not maching game names: As we do a text based search, some games might not be found. Example: On BGA, the game is called [LLAMA](https://boardgamearena.com/gamepanel?game=lama), while in BGG it's [L.L.A.M.A](https://boardgamegeek.com/boardgame/266083/llm).
-- Localization issues: Some games have their names translated in BGA, but BGG API is English based. Example: Using the Portuguese language, the game [6 nimmt!](https://boardgamearena.com/gamepanel?game=sechsnimmt) is translated as "Pega em 6". 
+- **Not maching game names:** As we do a text based search, some games might not be found. Example: On BGA, the game is called [LLAMA](https://boardgamearena.com/gamepanel?game=lama), while in BGG it's [L.L.A.M.A](https://boardgamegeek.com/boardgame/266083/llm).
+- **Language related issues:** Some games have their names translated in BGA, but BGG API is English based which causes some games to not have the information shown. Example: Using the Portuguese language, the game [6 nimmt!](https://boardgamearena.com/gamepanel?game=sechsnimmt) is translated as "Pega em 6", which is not found on BGG. 
 
 ## Credits
 All the game information is based [BGG XML API](https://boardgamegeek.com/wiki/page/BGG_XML_API2). The code for parsing the API return is based on [roderickwoodman/boardgameinator](https://github.com/roderickwoodman/boardgameinator).
