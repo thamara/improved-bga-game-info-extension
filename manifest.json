@@ -12,7 +12,7 @@
     "content_scripts": [{
         "css": ["styles.css"],
         "js": ["content.js"],
-        "matches": ["https://boardgamearena.com/*"],
+        "matches": ["https://boardgamearena.com/gamepanel*"],
         "run_at": "document_end"
     }]
   }
