@@ -16,6 +16,9 @@ The extension will include the extended information when in page for games, that
 3. Click `Load unpacked` and select the path for the cloned repository
 4. When developing, after making and saving changes, click refresh on the extension
 
+## Suggestions and feedbacks
+Feedbacks are more than welcome! Feel free to fill an [issue](https://github.com/thamara/improved-bga-game-info-extension/issues/new) suggesting new fields to be shown, reporting bugs, or any other feedback.
+
 ## Known issues
 This extension is considered **work in progress**, so a few issues are know:
 - Not maching game names: As we do a text based search, some games might not be found. Example: On BGA, the game is called [LLAMA](https://boardgamearena.com/gamepanel?game=lama), while in BGG it's [L.L.A.M.A](https://boardgamegeek.com/boardgame/266083/llm).
