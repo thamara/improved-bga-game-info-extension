@@ -15,7 +15,7 @@ function makeReadable(str) {
     return paragraphs;
 }
 
-function parseSearchApiXml(res) {
+function parseExactSearchApiXml(res) {
     const responseDoc = new DOMParser().parseFromString(res, 'application/xml')
     const gamesHtmlCollection = responseDoc.getElementsByTagName("item")
     if (gamesHtmlCollection.length >= 1) {
@@ -113,12 +113,12 @@ function parseGamedataApiXml(str) {
     return game
 }
 
-function findBGGGameId(gameName) {
+function findExactBGGGameId(gameName) {
     query = "https://www.boardgamegeek.com/xmlapi2/search?query=" + String(gameName).replaceAll(' ', '+').replaceAll(':', '+') + "&type=boardgame&exact=1";
     return (
         fetch(query)
             .then(searchResponse => searchResponse.text())
-            .then(searchText => parseSearchApiXml(searchText))
+            .then(searchText => parseExactSearchApiXml(searchText))
     )
 }
 
@@ -132,7 +132,7 @@ function findBGGGameInfo(gameId) {
 }
 
 async function displayGameInfo(gameName) {
-    const gameId = await findBGGGameId(gameName);
+    const gameId = await findExactBGGGameId(gameName);
     if (gameId === -1) {
         return;
     }
