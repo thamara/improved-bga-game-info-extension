@@ -24,6 +24,18 @@ function parseExactSearchApiXml(res) {
     return -1;
 }
 
+function parseLooseSearchApiXml(res, game_release_year_bga) {
+    const responseDoc = new DOMParser().parseFromString(res, 'application/xml')
+    const gamesHtmlCollection = responseDoc.getElementsByTagName("item")
+    for (let game of gamesHtmlCollection) {
+        game_release_year_bgg = game.getElementsByTagName("yearpublished")[0].attributes.item(0).value;
+        if (game_release_year_bgg == game_release_year_bga) {
+            return parseInt(game.id);
+        }
+    }
+    return -1;
+}
+
 function parseGamedataApiXml(str) {
     let game = {
         "attributes": {
@@ -113,17 +125,45 @@ function parseGamedataApiXml(str) {
     return game
 }
 
+const BGG_API_URL = "https://www.boardgamegeek.com/xmlapi2";
+
+function getBGGGameQuery(gameName, isExact) {
+    const queryFriendlyGameName = String(gameName).replaceAll(' ', '+').replaceAll(':', '+');
+    const exactSearch = isExact ? '&exact=1' : '';
+    return `${BGG_API_URL}/search?query=${queryFriendlyGameName}&type=boardgame${exactSearch}`
+}
+
 function findExactBGGGameId(gameName) {
-    query = "https://www.boardgamegeek.com/xmlapi2/search?query=" + String(gameName).replaceAll(' ', '+').replaceAll(':', '+') + "&type=boardgame&exact=1";
     return (
-        fetch(query)
+        fetch(getBGGGameQuery(gameName, true))
             .then(searchResponse => searchResponse.text())
             .then(searchText => parseExactSearchApiXml(searchText))
     )
 }
 
+function getGameReleaseYearFromBGA() {
+    let game_info_col = document.getElementsByClassName("game_infos_first_col")[0];
+    if (!game_info_col) return null;
+    let year_row = game_info_col.children[3];
+    if (!year_row) return null;
+    let year_div = year_row.children[1];
+    if (!year_div) return null;
+    let year = year_div.innerHTML;
+    return year;
+}
+
+function findLooseBGGGameId(gameName) {
+    game_release_year_bga = getGameReleaseYearFromBGA();
+    const gameNameWithoutParentheses = gameName.replace(/\(.*\)/i, '');
+    return (
+        fetch(getBGGGameQuery(gameNameWithoutParentheses, false))
+            .then(searchResponse => searchResponse.text())
+            .then(searchText => parseLooseSearchApiXml(searchText, game_release_year_bga))
+    )
+}
+
 function findBGGGameInfo(gameId) {
-    query = "https://www.boardgamegeek.com/xmlapi2/thing?stats=1&id=" + gameId;
+    query = `${BGG_API_URL}/thing?stats=1&id=${gameId}`;
     return (
         fetch(query)
             .then(searchResponse => searchResponse.text())
@@ -132,7 +172,10 @@ function findBGGGameInfo(gameId) {
 }
 
 async function displayGameInfo(gameName) {
-    const gameId = await findExactBGGGameId(gameName);
+    gameId = await findExactBGGGameId(gameName);
+    if (gameId === -1) {
+        gameId = await findLooseBGGGameId(gameName);
+    }
     if (gameId === -1) {
         return;
     }
