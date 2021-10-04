@@ -125,12 +125,14 @@ function parseGamedataApiXml(str) {
     return game
 }
 
-const BGG_API_URL = "https://www.boardgamegeek.com/xmlapi2";
+function getBGAAPIUrl() {
+    return "https://www.boardgamegeek.com/xmlapi2"
+}
 
 function getBGGGameQuery(gameName, isExact) {
     const queryFriendlyGameName = String(gameName).replaceAll(' ', '+').replaceAll(':', '+');
     const exactSearch = isExact ? '&exact=1' : '';
-    return `${BGG_API_URL}/search?query=${queryFriendlyGameName}&type=boardgame${exactSearch}`
+    return `${getBGAAPIUrl()}/search?query=${queryFriendlyGameName}&type=boardgame${exactSearch}`
 }
 
 function findExactBGGGameId(gameName) {
@@ -163,7 +165,7 @@ function findLooseBGGGameId(gameName) {
 }
 
 function findBGGGameInfo(gameId) {
-    query = `${BGG_API_URL}/thing?stats=1&id=${gameId}`;
+    query = `${getBGAAPIUrl()}/thing?stats=1&id=${gameId}`;
     return (
         fetch(query)
             .then(searchResponse => searchResponse.text())
