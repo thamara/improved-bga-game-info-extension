@@ -9,12 +9,34 @@ The extension will include the extended information when in page for games, that
 
 **Tip**: It works best if you set BGA language to English.
 
-## Install and development
+## Installation
+
+Information on how to install the extensions will be shared soon. If you want to use it as is, you can follow the instructions on the the development section.
+
+Only Chrome supports installing unpacked extensions and having it available even if you close the browser.
+
+## Development
 
 1. Clone the repository
-2. Go to `chrome://extensions`
+
+### On Google Chrome
+1. Go to `chrome://extensions`
+2. Enable Developer Mode in the right top corner if it's not enabled already
 3. Click `Load unpacked` and select the path for the cloned repository
 4. When developing, after making and saving changes, click refresh on the extension
+
+### On Microsoft Edge
+1. Go to `edge://extensions`
+2. Enable Developer Mode in the left column if it's not enabled already
+3. Click `Load unpacked` and select the path for the cloned repository
+4. When developing, after making and saving changes, click refresh on the extension
+
+### Mozilla Firefox
+1. Go to `about:addons`
+2. Click on the gear icon and select `Debug Add-ons`
+3. Click on `Load Temporary Add-on`
+4. Select the `background.js` file from the cloned repository
+5. When developing, after making and saving changes, click refresh on the extension
 
 ## Suggestions and feedbacks
 Feedbacks are more than welcome! Feel free to fill an [issue](https://github.com/thamara/improved-bga-game-info-extension/issues/new) suggesting new fields to be shown, reporting bugs, or any other feedback.
