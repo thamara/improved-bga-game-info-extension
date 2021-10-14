@@ -10,10 +10,9 @@
         "128": "icons/extension_toolbar_icon128.png"
     },
     "permissions": [
-        "activeTab",
-        "webRequest",
-        "webNavigation",
-        "<all_urls>"
+        "https://boardgamearena.com/gamepanel*",
+        "https://www.boardgamegeek.com/xmlapi2/*",
+        "webNavigation"
     ],
     "background": {
         "scripts": ["background.js"],
