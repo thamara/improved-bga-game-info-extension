@@ -3,7 +3,7 @@
 This is a Chrome extension that will display more information about a given game on [Board Game Arena](https://boardgamearena.com). This includes the weigth, rating, ranking and also the the category and mechanisms of the game.
 You'll also have a link to quickly look into the game in [Board Game Geek](https://boardgamegeek.com).
 
-![Extension example](example.png)
+![Extension example](resources/example.png)
 
 The extension will include the extended information when in page for games, that is, pages starting with `https://boardgamearena.com/gamepanel`.
 
@@ -22,20 +22,20 @@ Only Chrome supports installing unpacked extensions and having it available even
 ### On Google Chrome
 1. Go to `chrome://extensions`
 2. Enable Developer Mode in the right top corner if it's not enabled already
-3. Click `Load unpacked` and select the path for the cloned repository
+3. Click `Load unpacked` and select the `extension/` directory in the cloned repository folder
 4. When developing, after making and saving changes, click refresh on the extension
 
 ### On Microsoft Edge
 1. Go to `edge://extensions`
 2. Enable Developer Mode in the left column if it's not enabled already
-3. Click `Load unpacked` and select the path for the cloned repository
+3. Click `Load unpacked` and select the `extension/` directory in the cloned repository folder
 4. When developing, after making and saving changes, click refresh on the extension
 
 ### Mozilla Firefox
 1. Go to `about:addons`
 2. Click on the gear icon and select `Debug Add-ons`
 3. Click on `Load Temporary Add-on`
-4. Select the `background.js` file from the cloned repository
+4. Select the `extension/background.js` file from the cloned repository
 5. When developing, after making and saving changes, click refresh on the extension
 
 ## Suggestions and feedbacks
