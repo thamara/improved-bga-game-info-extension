@@ -14,9 +14,9 @@
    id="svg1967"
    inkscape:version="1.0.2-2 (e86c870879, 2021-01-15)"
    sodipodi:docname="icon.svg"
-   inkscape:export-filename="C:\Users\tkcan\dev\improved-bga-game-info-extension\extension_toolbar_icon128.png"
-   inkscape:export-xdpi="8.7771425"
-   inkscape:export-ydpi="8.7771425">
+   inkscape:export-filename="C:\Users\tkcan\dev\improved-bga-game-info-extension\icons\extension_toolbar_icon16.png"
+   inkscape:export-xdpi="1.0971428"
+   inkscape:export-ydpi="1.0971428">
   <defs
      id="defs1961">
     <rect
@@ -49,10 +49,10 @@
      units="px"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-width="1536"
+     inkscape:window-height="801"
+     inkscape:window-x="-4"
+     inkscape:window-y="1072"
      inkscape:window-maximized="1" />
   <metadata
      id="metadata1964">
@@ -71,30 +71,30 @@
      id="layer2"
      inkscape:label="Layer 2">
     <path
-       style="fill:#bc5fd3;stroke:none;stroke-width:0.321683px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#d39bd6;stroke:none;stroke-width:0.321683px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
        d="m 126.28677,73.542845 c 8.21675,-88.681395 115.73291,-87.402613 121.32035,1.378637 112.41865,52.069278 180.60962,98.501688 45.49512,119.022608 25.42572,49.21933 96.26448,117.9056 69.39157,166.03537 l -123.61808,1.83818 c -22.20042,-17.29437 -31.84874,-68.61413 -54.19663,-85.33439 -26.4782,16.73589 -29.61413,66.60765 -51.49912,86.25348 L 9.5619024,362.27717 C -21.582535,321.12573 55.516586,244.80059 78.493924,195.32274 48.835158,186.21537 -102.6046,174.6814 126.28677,73.542845 Z"
        id="path864"
        sodipodi:nodetypes="cccccccccc" />
     <g
-       id="g870"
-       transform="translate(0,-1.5119048)">
+       id="g843"
+       transform="translate(-3.377597e-7,-24.190476)">
       <circle
-         style="opacity:0.999;fill:#d5d5ff;stroke-width:2.03723;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke markers fill"
+         style="opacity:0.999;fill:#a7ade2;fill-opacity:1;stroke-width:2.03723;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke markers fill"
          id="path862"
          cx="185.20833"
-         cy="169.8627"
+         cy="185.20833"
          r="80.508926" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:174.483px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:4.36211"
-         x="113.81343"
-         y="225.41101"
+         style="font-style:normal;font-weight:normal;font-size:300.815px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:7.52044"
+         x="62.120945"
+         y="280.97562"
          id="text860"><tspan
            sodipodi:role="line"
            id="tspan858"
-           x="113.81343"
-           y="225.41101"
-           style="stroke-width:4.36211">+</tspan></text>
+           x="62.120945"
+           y="280.97562"
+           style="fill:#ffffff;fill-opacity:1;stroke-width:7.52044">+</tspan></text>
     </g>
   </g>
 </svg>
