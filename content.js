@@ -210,7 +210,7 @@ async function displayGameInfo(gameName) {
 
 // The page might not have loaded yet, so we need to wait for it to do so.
 // This will poll every 100ms until the information is available.
-var initializeInfo = setInterval(function() {
+var initializeInfo = setInterval(function () {
     if (document.getElementsByClassName("bgg-info").length > 0) {
         // The information is already available, so we can stop polling.
         clearInterval(initializeInfo);
@@ -222,4 +222,4 @@ var initializeInfo = setInterval(function() {
         displayGameInfo(gameName);
         clearInterval(initializeInfo);
     }
- }, 500);
+}, 500);
