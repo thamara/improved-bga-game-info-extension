@@ -1,16 +1,21 @@
-# Improved BGA game information
+<div align="center">
+  <img src="extension/icons/extension_toolbar_icon64.png" alt="Extension logo">
+  <h1>Improved BGA Game Information</h1>
+  <br>
+  <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="48px" height="48px" /> <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="48px" height="48px" /> <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="48px" height="48px" /> <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="48px" height="48px" />
 
-<br>
-<p float="center">
-<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="48px" height="48px" /> <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="48px" height="48px" /> <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="48px" height="48px" /> <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="48px" height="48px" />
-</p>
+</div>
 
 <br>
 
 **Improved BGA game info** is a browser extension that will display more information about a given game on [Board Game Arena](https://boardgamearena.com). This includes the weigth, rating, ranking and also the the category and mechanisms of the game.
 You'll also have a link to quickly look into the game in [Board Game Geek](https://boardgamegeek.com).
 
-![Extension example](resources/example.png)
+<div align="center">
+    <img src="resources/example.png" alt="Extension example">
+    <br>
+    <br>
+</div>
 
 The extension will include the extended information when in page for games, that is, pages starting with `https://boardgamearena.com/gamepanel`.
 
