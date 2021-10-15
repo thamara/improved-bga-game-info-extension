@@ -2,8 +2,9 @@
   <img src="extension/icons/extension_toolbar_icon64.png" alt="Extension logo">
   <h1>Improved BGA Game Information</h1>
   <br>
-  <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="48px" height="48px" /> <a href="https://microsoftedge.microsoft.com/addons/detail/lkenagolgpfonfmdglbhgnfhanahnbkh" target="_blank"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="48px" height="48px" /></a><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="48px" height="48px" /> <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="48px" height="48px" />
+  <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="48px" height="48px" /> <a href="https://microsoftedge.microsoft.com/addons/detail/lkenagolgpfonfmdglbhgnfhanahnbkh" target="_blank"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="48px" height="48px" /></a> <a href="https://addons.mozilla.org/en-US/firefox/addon/improved-bga-game-info/" target="_blank"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="48px" height="48px" /></a> <img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="48px" height="48px" />
 
+  
 </div>
 
 <br>
@@ -23,7 +24,7 @@ The extension will include the extended information when in page for games, that
 
 ## Installation
 
-Google Chrome (in progress) | [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/lkenagolgpfonfmdglbhgnfhanahnbkh) | Mozilla Firefox (in progress) | Opera (in progress) 
+Google Chrome (in progress) | [Microsoft Edge](https://microsoftedge.microsoft.com/addons/detail/lkenagolgpfonfmdglbhgnfhanahnbkh) | [Mozilla Firefox](https://addons.mozilla.org/en-US/firefox/addon/improved-bga-game-info/) | Opera (in progress) 
 
 Information on how to install the extensions in all browsers will be shared soon. If you want to use it as is, you can follow the instructions on the the development section.
 Only Chrome supports installing unpacked extensions and having it available even if you close the browser.
