@@ -2,7 +2,7 @@
   <img src="extension/icons/extension_toolbar_icon64.png" alt="Extension logo">
   <h1>Improved BGA Game Information</h1>
   <br>
-  <a href="https://chrome.google.com/webstore/detail/improved-bga-game-info/hihdoablflnlippakmimnjacpcfpbdni?hl=pt-BR&authuser=1" target="_blank"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="48px" height="48px" /></a> <a href="https://microsoftedge.microsoft.com/addons/detail/lkenagolgpfonfmdglbhgnfhanahnbkh" target="_blank"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="48px" height="48px" /></a> <a href="https://addons.mozilla.org/en-US/firefox/addon/improved-bga-game-info/" target="_blank">
+  <a href="https://chrome.google.com/webstore/detail/improved-bga-game-info/hihdoablflnlippakmimnjacpcfpbdni?hl=pt-BR&authuser=1" target="_blank"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="48px" height="48px" /></a> <a href="https://microsoftedge.microsoft.com/addons/detail/lkenagolgpfonfmdglbhgnfhanahnbkh" target="_blank"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="48px" height="48px" /></a> <a href="https://addons.mozilla.org/en-US/firefox/addon/improved-bga-game-info/" target="_blank"><img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="48px" height="48px" /></a>
 
   
 </div>
