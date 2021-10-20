@@ -194,6 +194,21 @@ function findBGGGameInfo(gameId) {
     )
 }
 
+function getBestPlayerCount(game) {
+    const bestPlayerCount = game.bestPlayerCount;
+    const numOfPlayers = Object.keys(bestPlayerCount);
+    
+    let bestVoteCount = [];
+    numOfPlayers.forEach(item => {
+        bestVoteCount.push([item, bestPlayerCount[item].Best])
+    });
+
+    bestVoteCount.sort(function(a, b) {
+        return b[1] - a[1];
+    });
+    return bestVoteCount[0][0];
+}
+
 async function displayGameInfo(gameName) {
     gameId = await findExactBGGGameId(gameName);
     if (gameId === -1) {
@@ -214,6 +229,8 @@ async function displayGameInfo(gameName) {
                     <div style="display:inline-block;"><b>Rating:</b> ${Number(gameInfo.attributes.average).toFixed(2)} / 10</div> \
                     <div style="display:inline-block; width: 20px;"></div> \
                     <div style="display:inline-block;"><b>Ranking:</b> ${gameInfo.attributes.overallRank}</div> \
+                    <div style="display:inline-block; width: 20px;"></div> \
+                    <div style="display:inline-block;"><b>Best with </b> ${getBestPlayerCount(gameInfo)}<b> players</b></div> \
                     <div style="display:inline-block; width: 20px;"></div> \
                     <div style="display:inline-block;"><a href="https://boardgamegeek.com/boardgame/${gameInfo.id}" target="_blank">See + on <b>BGG</b></a></div> \
                     <div style="display:inline-block; width: 20px;"></div> \
