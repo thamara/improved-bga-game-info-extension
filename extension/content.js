@@ -41,7 +41,8 @@ function parseGamedataApiXml(str) {
         "attributes": {
             "categories": [],
             "mechanics": []
-        }
+        },
+        "bestPlayerCount": {}
     }
     const responseDoc = new DOMParser().parseFromString(str, "application/xml")
     const gamesHtmlCollection = responseDoc.getElementsByTagName("item")
@@ -81,6 +82,26 @@ function parseGamedataApiXml(str) {
                     if ((node.tagName === "link") &&
                         (node.getAttribute("type") === "boardgamemechanic")) {
                         game.attributes.mechanics.push(node.getAttribute("value"))
+                    }
+                    if (node.tagName === "poll" && node.getAttribute("name") === "suggested_numplayers") {
+                        node.childNodes.forEach(
+                            function (childNode) {
+                                if (childNode.tagName !== "results") {
+                                    return;
+                                }
+                                const numPlayers = childNode.getAttribute("numplayers");
+                                let suggestedNumPlayersVotes = {};
+                                childNode.childNodes.forEach(
+                                    function (grandchildNode) {
+                                        if (grandchildNode.tagName !== "result") {
+                                            return;
+                                        }
+                                        suggestedNumPlayersVotes[grandchildNode.getAttribute("value")] = parseInt(grandchildNode.getAttribute("numvotes"))
+                                    }
+                                );
+                                game.bestPlayerCount[numPlayers] = suggestedNumPlayersVotes;
+                            }
+                        );
                     }
                     if (node.tagName === "statistics") {
                         node.childNodes.forEach(
@@ -193,6 +214,8 @@ async function displayGameInfo(gameName) {
                     <div style="display:inline-block;"><b>Rating:</b> ${Number(gameInfo.attributes.average).toFixed(2)} / 10</div> \
                     <div style="display:inline-block; width: 20px;"></div> \
                     <div style="display:inline-block;"><b>Ranking:</b> ${gameInfo.attributes.overallRank}</div> \
+                    <div style="display:inline-block; width: 20px;"></div> \
+                    <div style="display:inline-block;"><b>Best with:</b> ${gameInfo.attributes.overallRank}</div> \
                     <div style="display:inline-block; width: 20px;"></div> \
                     <div style="display:inline-block;"><a href="https://boardgamegeek.com/boardgame/${gameInfo.id}" target="_blank">See + on <b>BGG</b></a></div> \
                     <div style="display:inline-block; width: 20px;"></div> \
