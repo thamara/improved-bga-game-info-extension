@@ -215,8 +215,6 @@ async function displayGameInfo(gameName) {
                     <div style="display:inline-block; width: 20px;"></div> \
                     <div style="display:inline-block;"><b>Ranking:</b> ${gameInfo.attributes.overallRank}</div> \
                     <div style="display:inline-block; width: 20px;"></div> \
-                    <div style="display:inline-block;"><b>Best with:</b> ${gameInfo.attributes.overallRank}</div> \
-                    <div style="display:inline-block; width: 20px;"></div> \
                     <div style="display:inline-block;"><a href="https://boardgamegeek.com/boardgame/${gameInfo.id}" target="_blank">See + on <b>BGG</b></a></div> \
                     <div style="display:inline-block; width: 20px;"></div> \
                  </div> \
