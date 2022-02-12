@@ -209,6 +209,37 @@ function getBestPlayerCount(game) {
     return bestVoteCount[0][0];
 }
 
+function getBGANewTableQuery(gameId) {
+    return `https://boardgamearena.com/table/table/createnew.html?game=${gameId}&gamemode=realtime&forceManual=true&is_meeting=false`
+}
+
+function parseNewTableResponse(response) {
+    const result = JSON.parse(response)
+    if (result.status == 1) {
+        return `https://boardgamearena.com/table?table=${result.data.table}`
+    }
+    return '#'
+}
+
+function findNewTableId(gameId) {
+    return (
+        fetch(getBGANewTableQuery(gameId))
+            .then(searchResponse => searchResponse.text())
+            .then(searchText => parseNewTableResponse(searchText))
+    )
+}
+
+function getGameId() {
+    const buttonHref = document.getElementById("create_new_table").href;
+    return buttonHref.substring(buttonHref.lastIndexOf('=') + 1);
+}
+
+async function startTable() {
+    const currentGameId = getGameId();
+    const newURL = await findNewTableId(currentGameId)
+    window.location.href = newURL;
+}
+
 async function displayGameInfo(gameName) {
     gameId = await findExactBGGGameId(gameName);
     if (gameId === -1) {
@@ -244,6 +275,14 @@ async function displayGameInfo(gameName) {
     if (document.getElementsByClassName("bgg-info").length == 0) {
         gameInfoHeader.appendChild(div);
     }
+
+    const newButtonDiv = '<a style="display:block;" class="bgabutton bgabutton_big bgabutton_green bgabutton_small_margin" href="#" id="start-table">Start a table</a>';
+    var gameButtonsElm = document.getElementsByClassName("gameimage")[0].nextElementSibling.nextElementSibling.children[0].children[0]
+    gameButtonsElm.innerHTML = newButtonDiv + gameButtonsElm.innerHTML;
+    
+    document.getElementById("start-table").addEventListener("click", function() {
+        startTable();
+    });
 }
 
 // The page might not have loaded yet, so we need to wait for it to do so.
