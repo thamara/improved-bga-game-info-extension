@@ -77,6 +77,9 @@ function parseGamedataApiXml(str) {
                     if (node.tagName === "maxplaytime") {
                         game.attributes["maxPlaytime"] = parseInt(node.getAttribute("value"))
                     }
+                    if (node.tagName === "playingtime") {
+                        game.attributes["playingtime"] = parseInt(node.getAttribute("value"))
+                    }
                     if ((node.tagName === "link") &&
                         (node.getAttribute("type") === "boardgamecategory")) {
                         game.attributes.categories.push(node.getAttribute("value"))
@@ -211,6 +214,16 @@ function getBestPlayerCount(game) {
     return bestVoteCount[0][0];
 }
 
+function getPlayingTime(game) {
+    const playingTime = game.attributes.playingtime;
+    const minPlaytime = game.attributes.minPlaytime;
+    const maxPlaytime = game.attributes.maxPlaytime;
+    if (playingTime === minPlaytime && playingTime === maxPlaytime) {
+        return `${playingTime}`;
+    }
+    return `${minPlaytime}-${maxPlaytime}`;
+}
+
 function getBGANewTableQuery(gameId) {
     return `https://boardgamearena.com/table/table/createnew.html?game=${gameId}&gamemode=realtime&forceManual=true&is_meeting=false`
 }
@@ -265,6 +278,8 @@ async function displayGameInfo(gameName) {
                     <div style="display:inline-block;"><b>Ranking:</b> ${gameInfo.attributes.overallRank}</div> \
                     <div style="display:inline-block; width: 20px;"></div> \
                     <div style="display:inline-block;"><b>Best with </b> ${getBestPlayerCount(gameInfo)}<b> players</b></div> \
+                    <div style="display:inline-block; width: 20px;"></div> \
+                    <div style="display:inline-block;"><b>Playing time </b> ${getPlayingTime(gameInfo)} <b>min</b></div> \
                     <div style="display:inline-block; width: 20px;"></div> \
                     <div style="display:inline-block;"><a href="https://boardgamegeek.com/boardgame/${gameInfo.id}" target="_blank">See + on <b>BGG</b></a></div> \
                     <div style="display:inline-block; width: 20px;"></div> \
