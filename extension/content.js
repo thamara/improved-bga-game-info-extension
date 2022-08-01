@@ -28,9 +28,11 @@ function parseLooseSearchApiXml(res, game_release_year_bga) {
     const responseDoc = new DOMParser().parseFromString(res, 'application/xml')
     const gamesHtmlCollection = responseDoc.getElementsByTagName("item")
     for (let game of gamesHtmlCollection) {
-        game_release_year_bgg = game.getElementsByTagName("yearpublished")[0].attributes.item(0).value;
-        if (game_release_year_bgg == game_release_year_bga) {
-            return parseInt(game.id);
+        if (game.getElementsByTagName("yearpublished")[0]) {
+            game_release_year_bgg = game.getElementsByTagName("yearpublished")[0].attributes.item(0).value;
+            if (game_release_year_bgg == game_release_year_bga) {
+                return parseInt(game.id);
+            }
         }
     }
     return -1;
@@ -165,7 +167,7 @@ function findExactBGGGameId(gameName) {
 }
 
 function getGameReleaseYearFromBGA() {
-    let game_info_col = document.getElementsByClassName("game_infos_first_col")[0];
+    let game_info_col = document.getElementsByClassName("bga-game-panel-description-meta")[0];
     if (!game_info_col) return null;
     let year_row = game_info_col.children[3];
     if (!year_row) return null;
@@ -252,6 +254,7 @@ async function displayGameInfo(gameName) {
     const categories = gameInfo.attributes.categories.map(category => `<li class="category">${category}</li>`).join('');
     const mechanics = gameInfo.attributes.mechanics.map(mechanic => `<li class="mechanic">${mechanic}</li>`).join('');
 
+    let outterDiv = document.createElement("div");
     var div = document.createElement("div");
     div.className = 'bgg-info';
     div.innerHTML = `<div class="row"> \
@@ -266,23 +269,24 @@ async function displayGameInfo(gameName) {
                     <div style="display:inline-block;"><a href="https://boardgamegeek.com/boardgame/${gameInfo.id}" target="_blank">See + on <b>BGG</b></a></div> \
                     <div style="display:inline-block; width: 20px;"></div> \
                  </div> \
-                <div class="row" style="margin: 5px;"> \
+                <div class="row"> \
                     <ul id="categories-mechanics">${categories} ${mechanics}</ul> \
                 </div> \
                  `;
 
-    var gameInfoHeader = document.getElementsByClassName("gameimage")[0].nextElementSibling;
+    outterDiv.appendChild(div);
+    var gameInfoHeader = document.getElementsByClassName("panel-header")[0].parentElement;
     if (document.getElementsByClassName("bgg-info").length == 0) {
-        gameInfoHeader.appendChild(div);
+        gameInfoHeader.insertAdjacentHTML('afterend', outterDiv.innerHTML);
     }
 
-    const newButtonDiv = '<a style="display:block;" class="bgabutton bgabutton_big bgabutton_green bgabutton_small_margin" href="#" id="start-table">Start a table</a>';
-    var gameButtonsElm = document.getElementsByClassName("gameimage")[0].nextElementSibling.nextElementSibling.children[0].children[0]
-    gameButtonsElm.innerHTML = newButtonDiv + gameButtonsElm.innerHTML;
+    // const newButtonDiv = '<a style="display:block;" class="bgabutton bgabutton_big bgabutton_green bgabutton_small_margin" href="#" id="start-table">Start a table</a>';
+    // var gameButtonsElm = document.getElementsByClassName("gameimage")[0].nextElementSibling.nextElementSibling.children[0].children[0]
+    // gameButtonsElm.innerHTML = newButtonDiv + gameButtonsElm.innerHTML;
     
-    document.getElementById("start-table").addEventListener("click", function() {
-        startTable();
-    });
+    // document.getElementById("start-table").addEventListener("click", function() {
+    //     startTable();
+    // });
 }
 
 // The page might not have loaded yet, so we need to wait for it to do so.
@@ -294,8 +298,13 @@ var initializeInfo = setInterval(function () {
         return;
     }
     const game_name_field = document.getElementById("game_name");
-    if (game_name_field && game_name_field.textContent && game_name_field.textContent.length > 0) {
-        const gameName = game_name_field.textContent;
+    // Play XXXXXXXXX online from your browser
+    const page_title = document.title;
+    const pattern = /.*Play (.*) online from.*/;
+    const match = page_title.match(pattern);
+    if (match && match.length > 1) {
+    // if (game_name_field && game_name_field.textContent && game_name_field.textContent.length > 0) {
+        const gameName = match[1];
         displayGameInfo(gameName);
         clearInterval(initializeInfo);
     }
