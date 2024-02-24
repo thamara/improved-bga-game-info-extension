@@ -292,7 +292,7 @@ async function displayGameInfo(gameName) {
     outterDiv.appendChild(div);
     var gameInfoHeader = document.getElementsByClassName("panel-header")[0].parentElement;
     if (document.getElementsByClassName("bgg-info").length == 0) {
-        gameInfoHeader.insertAdjacentHTML('afterend', outterDiv.innerHTML);
+        gameInfoHeader.insertAdjacentHTML('beforebegin', outterDiv.innerHTML);
     }
 
     // const newButtonDiv = '<a style="display:block;" class="bgabutton bgabutton_big bgabutton_green bgabutton_small_margin" href="#" id="start-table">Start a table</a>';
