@@ -1,22 +1,27 @@
 {
     "name": "Improved BGA game info",
     "description": "Be able to see more information from a game in Board Game Arena using Board Game Geek information.",
-    "version": "1.0.1",
-    "manifest_version": 2,
-    "icons": {
-        "16": "icons/extension_toolbar_icon16.png",
-        "32": "icons/extension_toolbar_icon32.png",
-        "48": "icons/extension_toolbar_icon48.png",
-        "128": "icons/extension_toolbar_icon128.png"
+    "version": "2.0.0",
+    "manifest_version": 3,
+    "action": {
+        "default-icon": {
+            "16": "icons/extension_toolbar_icon16.png",
+            "32": "icons/extension_toolbar_icon32.png",
+            "48": "icons/extension_toolbar_icon48.png",
+            "128": "icons/extension_toolbar_icon128.png"
+        }
     },
     "permissions": [
-        "https://boardgamearena.com/gamepanel*",
-        "https://www.boardgamegeek.com/xmlapi2/*",
+        "scripting",
         "webNavigation"
     ],
+    "host_permissions": [
+        "https://boardgamearena.com/gamepanel*",
+        "https://www.boardgamegeek.com/xmlapi2/*"
+    ],
     "background": {
-        "scripts": ["background.js"],
-        "persistent": true
+        "service_worker": "background.js",
+        "type": "module"
     },
     "content_scripts": [{
         "css": ["styles.css"],
