@@ -1,8 +1,21 @@
 'use strict';
 
-chrome.webNavigation.onHistoryStateUpdated.addListener(function (details) {
-    if (details.url.match(/https:\/\/boardgamearena.com\/gamepanel\?game=*/)) {
-        chrome.tabs.insertCSS(null, { file: "styles.css" });
-        chrome.tabs.executeScript(null, { file: "content.js" });
-    }
-});
+const filter = {
+    url: [{ hostContains: "boardgamearena.com" }, { pathEquals: "gamepanel" }, { queryContains: "game" }],
+};
+
+async function logOnHistoryStateUpdated(details) {
+    chrome.scripting.executeScript({
+        target: { tabId: details.tabId },
+        files: ["content.js"]
+    });
+    chrome.scripting.insertCSS({
+        target: { tabId: details.tabId },
+        files: ["styles.css"]
+    });
+}
+
+chrome.webNavigation.onHistoryStateUpdated.addListener(
+    logOnHistoryStateUpdated,
+    filter
+);
